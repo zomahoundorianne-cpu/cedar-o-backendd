@@ -1,0 +1,4 @@
+node_modules/
+cedar_o.db
+uploads/
+.env
