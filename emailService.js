@@ -6,14 +6,16 @@ function getTransporter() {
   const gmailPass = db.prepare("SELECT value FROM settings WHERE key='gmail_pass'").get();
 
   return nodemailer.createTransport({
-    service: 'gmail',
+    host: 'smtp.gmail.com',
+    port: 587,
+    secure: false,
+    family: 4,
     auth: {
       user: gmailUser?.value,
       pass: gmailPass?.value,
     },
   });
 }
-
 function getCabinetEmail() {
   return db.prepare("SELECT value FROM settings WHERE key='cabinet_email'").get()?.value;
 }
