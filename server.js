@@ -7,10 +7,7 @@ const { sendReminderEmails } = require('./emailService');
 const app = express();
 const PORT = process.env.PORT || 5001;
 
-app.use(cors({
-  origin: ['http://localhost:3000', 'https://incredible-monstera-0ec08b.netlify.app'],
-  credentials: true
-}));
+app.use(cors());
 app.use(express.json());
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
