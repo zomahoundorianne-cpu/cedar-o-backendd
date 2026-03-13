@@ -1,10 +1,15 @@
 const { Resend } = require('resend');
 const db = require('./db');
 
+const CABINET_EMAIL = 'armelleedjo@gmail.com';
+
 function getResend() {
   return new Resend('re_91JJQNZn_6TvP8Fp5Z3QRBnFHBgDmmXZQ');
 }
 
+function getCabinetEmail() {
+  return CABINET_EMAIL;
+}
 function getCabinetEmail() {
   const fromDb = db.prepare("SELECT value FROM settings WHERE key='cabinet_email'").get()?.value;
   return fromDb || 'armelleedjo@gmail.com';
