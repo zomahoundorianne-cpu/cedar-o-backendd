@@ -6,9 +6,9 @@ function getResend() {
 }
 
 function getCabinetEmail() {
-  return db.prepare("SELECT value FROM settings WHERE key='cabinet_email'").get()?.value;
+  const fromDb = db.prepare("SELECT value FROM settings WHERE key='cabinet_email'").get()?.value;
+  return fromDb || 'armelleedjo@gmail.com';
 }
-
 async function sendConfirmationEmail(appt) {
   const cabinetEmail = getCabinetEmail();
   if (!cabinetEmail) return;
